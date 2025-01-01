@@ -1,0 +1,145 @@
+div.datatables .pagination {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+div.datatables .pagination button {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+}
+
+div.datatables .pagination button.active {
+    background-color: #c37e1b;
+    color: #fff;
+}
+div.datatables .pagination #pagination{
+	width: 100%;
+}
+div.datatables .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+div.datatables .controls .entries-select {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+div.datatables .controls input, div.datatables .controls select{
+	width: 210px;
+	max-width: calc(100% - 10px);
+	height: 35px;
+	border: grey solid 1px;
+	border-radius: 3px;
+	padding: 0 5px;
+	outline: none;
+}
+div.datatables .controls select{
+	width: 40px;
+}
+
+div.datatables .pagination button:disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+    border-color: #e9ecef;
+    cursor: not-allowed;
+}
+div.datatables table {
+  border: 1px solid #999999;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+div.datatables table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+div.datatables table tr {
+  background: #fff;
+  border: 1px solid #999999;
+  padding: .35em;
+  border-radius: 5px;
+}
+
+div.datatables table th,
+div.datatables table td {
+  padding: .625em;
+  text-align: center;
+}
+
+div.datatables table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 500px) {
+	div.datatables .controls{
+		display: block;
+	}
+	div.datatables .controls div{
+		margin-bottom: 10px;
+	}
+	div.datatables .controls input{
+		width: 100%;
+	}
+	div.datatables .controls select{
+		width: calc(100% - 102px);
+		min-width: 35px;
+	}
+}
+@media screen and (max-width: 600px) {
+  div.datatables table {
+    border: 0;
+  }
+
+  div.datatables table caption {
+    font-size: 1.3em;
+  }
+  
+  div.datatables table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  div.datatables table tr {
+    border-bottom: 3px solid #999999;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  div.datatables table td {
+    border-bottom: 1px solid #999999;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  div.datatables table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  div.datatables table td:last-child {
+    border-bottom: 0;
+  }
