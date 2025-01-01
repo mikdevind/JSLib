@@ -6,15 +6,15 @@ MIKDevInd adalah library JavaScript yang dirancang untuk membantu pengembang dal
 
 ## Fitur Utama
 
-1. **TextInputRecommen.js**
+1. **TextInputRecommen**
    - Memberikan rekomendasi otomatis saat pengguna mengetik pada input teks.
    - Cocok digunakan untuk fitur pencarian dengan saran real-time.
 
-2. **DataTable.js**
+2. **DataTable**
    - Membuat tabel data interaktif dengan fitur pencarian, penyortiran, dan paginasi.
    - Memungkinkan pengaturan jumlah baris yang ditampilkan per halaman.
 
-3. **ImageZoom.js**
+3. **ImageZoom**
    - Menyediakan fitur zoom interaktif pada gambar.
    - Mendukung zoom dengan mouse dan gerakan multi-sentuh pada perangkat mobile.
 
@@ -95,9 +95,9 @@ Berikut adalah contoh penggunaan fitur utama MIKDevInd:
 
 Silakan baca dokumentasi di masing-masing file JavaScript untuk memahami konfigurasi dan opsi tambahan:
 
-- **TextInputRecommen.js**: Cara menyesuaikan saran otomatis.
-- **DataTable.js**: Mengatur kolom, data, dan interaksi tabel.
-- **ImageZoom.js**: Menyesuaikan tingkat zoom dan perilaku gambar.
+- **TextInputRecommen**: Cara menyesuaikan saran otomatis.
+- **DataTable**: Mengatur kolom, data, dan interaksi tabel.
+- **ImageZoom**: Menyesuaikan tingkat zoom dan perilaku gambar.
 
 ---
 
