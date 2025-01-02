@@ -1,4 +1,4 @@
-/*!TextInputRecommen v1.0.0 | (c) Ilman Hendrawan Saputra | MIKDevInd/license */
+/*!TextInputRecommen v1.0.1 | (c) Ilman Hendrawan Saputra | MIKDevInd/license */
 export class TextInputRecommen {
   constructor(inputSelector, recommendations) {
     this.inputField = document.querySelector(inputSelector);
@@ -33,7 +33,11 @@ export class TextInputRecommen {
   // Inisialisasi event listener
   init() {
     this.inputField.addEventListener('input', () => this.handleInput());
-    this.inputField.addEventListener('focus', () => this.handleFocus());
+    this.inputField.addEventListener('focus', () => {
+      this.updateRecommendationBoxPosition();
+      this.handleFocus();
+    });
+    this.inputField.addEventListener('click', () => this.updateRecommendationBoxPosition());
     document.addEventListener('click', (e) => this.handleOutsideClick(e));
     window.addEventListener('resize', () => this.updateRecommendationBoxPosition());
   }
@@ -51,47 +55,43 @@ export class TextInputRecommen {
   handleFocus() {
     this.updateRecommendations(this.recommendations);
   }
+
   removeHtmlTags(input) {
     return input.replace(/<\/?[^>]+(>|$)/g, "");
   }
+
   decodeHtmlEntities(str) {
     // Decode numeric entities (e.g., &#039; -> ')
-    str = str.replace(/&#(\d+);/g, function(match, code) {
-        return String.fromCharCode(parseInt(code, 10));
-    });
+    str = str.replace(/&#(\d+);/g, (match, code) => String.fromCharCode(parseInt(code, 10)));
 
     // Decode hexadecimal numeric entities (e.g., &#x27; -> ')
-    str = str.replace(/&#x([0-9A-Fa-f]+);/g, function(match, code) {
-        return String.fromCharCode(parseInt(code, 16));
-    });
+    str = str.replace(/&#x([0-9A-Fa-f]+);/g, (match, code) =>
+      String.fromCharCode(parseInt(code, 16))
+    );
 
     // Decode named entities (e.g., &lt; -> <)
     const entityMap = {
-        '&amp;': '&',
-        '&lt;': '<',
-        '&gt;': '>',
-        '&quot;': '"',
-        '&#039;': "'",
-        '&#47;': '/',
-        '&#96;': '`',
-        '&nbsp;': ' ',
-        '&iexcl;': '¡',
-        '&cent;': '¢',
-        '&pound;': '£',
-        '&yen;': '¥',
-        '&copy;': '©',
-        '&reg;': '®',
-        '&divide;': '÷',
-        '&times;': '×',
-        // You can add more HTML entities here if needed
+      '&amp;': '&',
+      '&lt;': '<',
+      '&gt;': '>',
+      '&quot;': '"',
+      '&#039;': "'",
+      '&#47;': '/',
+      '&#96;': '`',
+      '&nbsp;': ' ',
+      '&iexcl;': '¡',
+      '&cent;': '¢',
+      '&pound;': '£',
+      '&yen;': '¥',
+      '&copy;': '©',
+      '&reg;': '®',
+      '&divide;': '÷',
+      '&times;': '×',
     };
 
-    str = str.replace(/&[a-zA-Z0-9#]+;/g, function(match) {
-        return entityMap[match] || match;
-    });
-
-    return str;
+    return str.replace(/&[a-zA-Z0-9#]+;/g, (match) => entityMap[match] || match);
   }
+
   // Memperbarui daftar rekomendasi
   updateRecommendations(matches) {
     this.recommendationBox.innerHTML = '';
